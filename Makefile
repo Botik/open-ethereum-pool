@@ -5,10 +5,10 @@
 .PHONY: all test clean
 
 all:
-	go build -o build/_workspace/open-ethereum-pool
+	go build -o build/bin/open-ethereum-pool
 
 test: all
 	go test -v ./...
 
 clean:
-	rm -rf build/_workspace
+	rm -rf build/bin
