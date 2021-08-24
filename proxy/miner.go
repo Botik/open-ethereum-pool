@@ -6,11 +6,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ethereum/ethash"
+	"github.com/etclabscore/go-etchash"
 	"github.com/ethereum/go-ethereum/common"
 )
 
-var hasher = ethash.New()
+var ecip1099FBlockClassic uint64 = 11700000 // classic mainnet
+var ecip1099FBlockMordor uint64 = 2520000   // mordor
+
+var hasher *etchash.Etchash = etchash.New(nil, nil) // ethash
 
 func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, params []string) (bool, bool) {
 	nonceHex := params[0]
